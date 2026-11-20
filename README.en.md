@@ -51,11 +51,24 @@ Android-side implementation and extensions:
 
 ## Screenshots
 
-> Placeholder screenshots; to be replaced with real UI captures after device / emulator verification.
+### TV ZyfunTV
 
-| Phone ZyfunPhone | TV ZyfunTV | Dual ZyfunDuo |
+| Home | Movies |
+| --- | --- |
+| ![TV Home](screenshots/tv-home.jpg)<br>Home | ![TV Movies](screenshots/tv-film.jpg)<br>Movies |
+| ![TV Live](screenshots/tv-live.jpg)<br>Live TV | ![TV Rankings](screenshots/tv-rank.jpg)<br>Rankings |
+| ![TV Parser](screenshots/tv-parse.jpg)<br>Parser | ![TV Cloud](screenshots/tv-cloud.jpg)<br>Cloud drive |
+| ![TV History](screenshots/tv-moment.jpg)<br>History | ![TV Settings](screenshots/tv-settings.jpg)<br>Settings |
+| ![TV Site config](screenshots/tv-site-config.jpg)<br>Site config | ![TV Cloud config](screenshots/tv-cloud-config.jpg)<br>Cloud config |
+
+### Phone ZyfunPhone
+
+| Movies | Live channels | Live player |
 | --- | --- | --- |
-| ![ZyfunPhone](screenshots/phone-placeholder.svg) | ![ZyfunTV](screenshots/tv-placeholder.svg) | ![ZyfunDuo](screenshots/duo-placeholder.svg) |
+| ![Phone Movies](screenshots/phone-film.jpg)<br>Movies | ![Phone Live](screenshots/phone-live.jpg)<br>Live channels | ![Phone Player](screenshots/phone-live-player.jpg)<br>Live player |
+| ![Phone Rankings](screenshots/phone-rank.jpg)<br>Rankings | ![Phone Parser](screenshots/phone-parse.jpg)<br>Parser | ![Phone Cloud](screenshots/phone-cloud.jpg)<br>Cloud drive |
+| ![Phone History](screenshots/phone-moment.jpg)<br>History | ![Phone Settings](screenshots/phone-settings.jpg)<br>Settings | ![Phone Site config](screenshots/phone-site-config.jpg)<br>Site config |
+| ![Phone Advanced](screenshots/phone-advanced.jpg)<br>Advanced · Sync |  |  |
 
 ## Download
 

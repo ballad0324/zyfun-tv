@@ -51,11 +51,24 @@ Android 端落地与扩展：
 
 ## 界面预览
 
-> 截图为占位，待真机 / 模拟器验证后替换为实际界面图。
+### 电视端 ZyfunTV
 
-| 手机端 ZyfunPhone | 电视端 ZyfunTV | 双端版 ZyfunDuo |
+| 首页 | 影视 |
+| --- | --- |
+| ![TV 首页](screenshots/tv-home.jpg)<br>首页 | ![TV 影视](screenshots/tv-film.jpg)<br>影视 |
+| ![TV 直播](screenshots/tv-live.jpg)<br>直播 | ![TV 榜单](screenshots/tv-rank.jpg)<br>榜单 |
+| ![TV 解析](screenshots/tv-parse.jpg)<br>解析 | ![TV 网盘](screenshots/tv-cloud.jpg)<br>网盘 |
+| ![TV 过刻](screenshots/tv-moment.jpg)<br>过刻 | ![TV 设置](screenshots/tv-settings.jpg)<br>设置 |
+| ![TV 影视配置](screenshots/tv-site-config.jpg)<br>影视配置 | ![TV 网盘配置](screenshots/tv-cloud-config.jpg)<br>网盘配置 |
+
+### 手机端 ZyfunPhone
+
+| 影视 | 直播频道 | 直播播放 |
 | --- | --- | --- |
-| ![ZyfunPhone](screenshots/phone-placeholder.svg) | ![ZyfunTV](screenshots/tv-placeholder.svg) | ![ZyfunDuo](screenshots/duo-placeholder.svg) |
+| ![手机 影视](screenshots/phone-film.jpg)<br>影视 | ![手机 直播](screenshots/phone-live.jpg)<br>直播频道 | ![手机 直播播放](screenshots/phone-live-player.jpg)<br>直播播放 |
+| ![手机 榜单](screenshots/phone-rank.jpg)<br>榜单 | ![手机 解析](screenshots/phone-parse.jpg)<br>解析 | ![手机 网盘](screenshots/phone-cloud.jpg)<br>网盘 |
+| ![手机 过刻](screenshots/phone-moment.jpg)<br>过刻 | ![手机 设置](screenshots/phone-settings.jpg)<br>设置 | ![手机 影视配置](screenshots/phone-site-config.jpg)<br>影视配置 |
+| ![手机 高级](screenshots/phone-advanced.jpg)<br>高级 · 配置同步 |  |  |
 
 ## 下载
 
