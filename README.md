@@ -1,5 +1,7 @@
 # zyfun-tv
 
+**语言：** [中文](README.md) | [English](README.en.md)
+
 参照上游 [Hiram-Wong/zyfun](https://github.com/Hiram-Wong/zyfun)（原 ZyPlayer，Electron + Vue3 + TypeScript 跨平台桌面播放器）的协议与数据模型，在 Android 原生侧重写的 **Kotlin + Jetpack Compose TV / 手机双端客户端**。
 
 ## 项目介绍
