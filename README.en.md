@@ -4,6 +4,16 @@ A native **Kotlin + Jetpack Compose** Android client for TV and phones, reimplem
 
 **Language:** [中文](README.md) | **English**
 
+## Acknowledgements & Disclaimer
+
+- Thanks to the upstream developers for the open-source project; this Android port is built on its protocols and data models.
+- This project is a **porting skeleton**; the only feature added beyond the upstream is pushing configuration data from the phone to a TV device.
+- **Release note**: this is the one and only version. No further feature development will be done; other developers are welcome to continue the work.
+- As a result, zyfun now has an Android phone client, an Android TV client, and a dual-target build sharing both UI layouts and two sets of settings.
+- The first release was built in 24 hours with AI-assisted gap filling; features and polish may still be incomplete and buggy — feedback welcome.
+- **Commercial use is not permitted; this project is for cloning, learning and research only.**
+- Contact: 98555576 (identify the platform yourself).
+
 ## Introduction
 
 ### Origin & Relationship
