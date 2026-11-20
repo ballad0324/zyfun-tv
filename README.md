@@ -1,6 +1,41 @@
 # zyfun-tv
 
-基于 zyfun（Hiram-Wong/ZyPlayer）协议与数据模型重写的 **原生 Kotlin Android TV / 手机双端客户端**。
+参照上游 [Hiram-Wong/zyfun](https://github.com/Hiram-Wong/zyfun)（原 ZyPlayer，Electron + Vue3 + TypeScript 跨平台桌面播放器）的协议与数据模型，在 Android 原生侧重写的 **Kotlin + Jetpack Compose TV / 手机双端客户端**。
+
+## 项目介绍
+
+### 起源与关系
+
+- **上游**：[Hiram-Wong/zyfun](https://github.com/Hiram-Wong/zyfun)（原 ZyPlayer），TypeScript + Electron + Vue3 的跨平台桌面端视频资源播放器，AGPL-3.0 协议。
+- **本项目**：非代码级 fork，而是沿用上游的站点 / 直播 / 解析 / 网盘协议与数据模型，以原生 Android 技术栈重新实现；属上游的 AGPL-3.0 衍生作品。
+- **定位**：同一套代码同时覆盖电视（Leanback）与手机（Phone），并拆为三个产品变体。
+
+### 开发语言与技术栈
+
+- **语言**：Kotlin（源文件全部为 `.kt`，无 Java）；Gradle 构建脚本使用 Groovy DSL（`.gradle`）。
+- **UI**：Jetpack Compose（Material3 + Compose for TV `tv-material`），零 XML 布局；电视 / 手机各自独立主题、组件与页面。
+- **播放器**：Media3 ExoPlayer 1.4.1（HLS / DASH / MP4）。
+- **存储**：Room 2.6.1（KSP 编译）+ DataStore Preferences 1.1.1。
+- **网络 / 序列化 / 图片**：OkHttp 4.12.0、kotlinx-serialization-json 1.7.3、Coil 2.7.0。
+- **构建**：JDK 17、AGP 8.7.3、compileSdk / targetSdk 35、minSdk 21、build-tools 36.0.0。
+
+### 功能模块
+
+对齐上游的模块：影视站点（film）、直播 IPTV（live）、线路解析（parse）、过刻 / 短剧（moment）、实验室（lab）、设置（setting）、播放器（player）、网页浏览（WebView）。
+
+Android 端落地与扩展：
+
+- 双端界面：电视左侧栏导航 + 手机底部导航，双端独立主题与组件；`universal` 运行时自适应，`phone` / `tv` 强制端型。
+- 榜单热榜：热榜抓取 + 搜索 / 解析兜底播放。
+- 网盘资源：Alist 适配器 + WebDAV 客户端，资源管理器式浏览点播。
+- 局域网同步：设备探测 + 客户端 / 服务端互推。
+- 基础能力：深链唤起、JS 脚本执行、SM4 / AES / MAC 加解密、网页嗅探、TLS 兼容、屏内调试日志、配置备份 / 归档导入。
+- 多解析适配器：Catvod、AppYsV2、AppGet、Xbpq、Xyq、T0Xml、Xmltv 等。
+
+### 版本
+
+- 当前版本：versionName `0.3.59`，versionCode `62`（内部构建递增号）。
+- 本公开仓库首个 Release：`v0.3.59`；早期为本地迭代的 debug / release 测试包，未在此仓库保留历史节点。
 
 ## 界面预览
 
@@ -90,4 +125,4 @@ app/src/main/java/com/hoopoe/zyfuntv/
 
 ## 许可
 
-本项目为 zyfun（Hiram-Wong/ZyPlayer）的衍生作品，依 **AGPL-3.0** 协议开源，全文见 [LICENSE](LICENSE)；对外分发衍生版本时需保留本许可并以相同协议开放源码。
+本项目为 [Hiram-Wong/zyfun](https://github.com/Hiram-Wong/zyfun) 的衍生作品，依 **AGPL-3.0** 协议开源，全文见 [LICENSE](LICENSE)；对外分发衍生版本时需保留本许可并以相同协议开放源码。
