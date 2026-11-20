@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZyfunTV</string>
+
+    <!-- 主導航 -->
+    <string name="nav_home">首頁</string>
+    <string name="nav_film">影視</string>
+    <string name="nav_live">直播</string>
+    <string name="nav_shortdrama">短劇</string>
+    <string name="nav_rank">榜單</string>
+    <string name="nav_parse">解析</string>
+    <string name="nav_moment">過刻</string>
+    <string name="nav_cloud">網盤</string>
+    <string name="nav_setting">我的</string>
+
+    <!-- 設定頁 -->
+    <string name="setting_language">語言</string>
+    <string name="lang_zh">中文</string>
+    <string name="lang_en">English</string>
+    <string name="setting_export">匯出完整備份（偏好/歷史/收藏/源）</string>
+    <string name="setting_import_local">從本機檔案匯入</string>
+    <string name="setting_webdav">WebDAV 同步</string>
+    <string name="setting_check_update">檢查更新</string>
+    <string name="hint_coming_soon">敬請期待（二期）</string>
+    <string name="export_done">備份已匯出至：%1$s</string>
+    <string name="export_failed">匯出失敗：%1$s</string>
+    <string name="import_done">匯入成功：站點 %1$d · 解析 %2$d · 直播源 %3$d · 頻道 %4$d</string>
+    <string name="import_backup_done">匯入成功：站點 %1$d · 解析 %2$d · 直播源 %3$d · 歷史 %4$d · 收藏 %5$d</string>
+    <string name="import_settings_hint">偏好已還原，重啟 App 後完全生效</string>
+    <string name="import_failed">匯入失敗：無法讀取或解析該檔案</string>
+</resources>

@@ -1,0 +1,114 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.compose'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+    id 'com.google.devtools.ksp'
+}
+
+def keystoreProps = new Properties()
+def ksPropsFile = rootProject.file("keystore.properties")
+if (ksPropsFile.exists()) {
+    keystoreProps.load(new FileInputStream(ksPropsFile))
+}
+
+android {
+    namespace 'com.hoopoe.zyfuntv'
+    compileSdk 35
+    buildToolsVersion "36.0.0"
+
+    defaultConfig {
+        applicationId "com.hoopoe.zyfuntv"
+        minSdk 21
+        targetSdk 35
+        versionCode 62
+        versionName "0.3.59"
+    }
+
+    // 打包变体：universal 双端合一（运行时切换）、phone 强制手机端、tv 强制电视端
+    flavorDimensions "app"
+    productFlavors {
+        universal {
+            dimension "app"
+            applicationId "com.hoopoe.zyfun.duo"
+            buildConfigField "String", "FORCED_UI_MODE", '"auto"'
+        }
+        phone {
+            dimension "app"
+            applicationId "com.hoopoe.zyfun.phone"
+            buildConfigField "String", "FORCED_UI_MODE", '"phone"'
+        }
+        tv {
+            dimension "app"
+            applicationId "com.hoopoe.zyfun.tv"
+            buildConfigField "String", "FORCED_UI_MODE", '"tv"'
+        }
+    }
+
+    signingConfigs {
+        release {
+            if (keystoreProps.storeFile) {
+                storeFile file(keystoreProps.storeFile)
+                storePassword keystoreProps.storePassword
+                keyAlias keystoreProps.keyAlias
+                keyPassword keystoreProps.keyPassword
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        compose true
+        buildConfig true
+    }
+}
+
+dependencies {
+    // Compose 基础
+    def composeBom = platform('androidx.compose:compose-bom:2024.09.03')
+    implementation composeBom
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.activity:activity-compose:1.9.3'
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+
+    // Compose for TV
+    implementation 'androidx.tv:tv-material:1.0.0'
+
+    // 播放器 Media3
+    implementation 'androidx.media3:media3-exoplayer:1.4.1'
+    implementation 'androidx.media3:media3-datasource:1.4.1'
+    implementation 'androidx.media3:media3-datasource-okhttp:1.4.1'
+    implementation 'androidx.media3:media3-exoplayer-hls:1.4.1'
+    implementation 'androidx.media3:media3-exoplayer-dash:1.4.1'
+    implementation 'androidx.media3:media3-ui:1.4.1'
+
+    // 本地存储 / 网络 / 序列化 / 图片
+    implementation 'androidx.datastore:datastore-preferences:1.1.1'
+    implementation 'androidx.room:room-runtime:2.6.1'
+    implementation 'androidx.room:room-ktx:2.6.1'
+    ksp 'androidx.room:room-compiler:2.6.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3'
+    implementation 'io.coil-kt:coil-compose:2.7.0'
+
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+}

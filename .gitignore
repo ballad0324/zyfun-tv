@@ -1,0 +1,18 @@
+*.iml
+.gradle/
+local.properties
+.idea/
+build/
+app/build/
+captures/
+*.apk
+*.aab
+*.keystore
+*.jks
+keystore.properties
+*.log
+.kotlin/
+
+# 内部开发笔记与过程文档，不公开入库
+docs/
+TODO.md

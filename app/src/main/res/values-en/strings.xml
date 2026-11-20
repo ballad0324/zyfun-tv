@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ZyfunTV</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_film">Movies</string>
+    <string name="nav_live">Live</string>
+    <string name="nav_shortdrama">Shorts</string>
+    <string name="nav_rank">Rank</string>
+    <string name="nav_parse">Parser</string>
+    <string name="nav_moment">History</string>
+    <string name="nav_cloud">Cloud</string>
+    <string name="nav_setting">Me</string>
+
+    <!-- Settings -->
+    <string name="setting_language">Language</string>
+    <string name="lang_zh">中文</string>
+    <string name="lang_en">English</string>
+    <string name="setting_export">Export full backup (prefs/history/favorites/sources)</string>
+    <string name="setting_import_local">Import from local file</string>
+    <string name="setting_webdav">WebDAV sync</string>
+    <string name="setting_check_update">Check for updates</string>
+    <string name="hint_coming_soon">Coming soon (phase 2)</string>
+    <string name="export_done">Backup exported to: %1$s</string>
+    <string name="export_failed">Export failed: %1$s</string>
+    <string name="import_done">Imported: sites %1$d · parsers %2$d · live sources %3$d · channels %4$d</string>
+    <string name="import_backup_done">Imported: sites %1$d · parsers %2$d · live sources %3$d · history %4$d · favorites %5$d</string>
+    <string name="import_settings_hint">Preferences restored; restart the app for full effect</string>
+    <string name="import_failed">Import failed: cannot read or parse the file</string>
+</resources>
