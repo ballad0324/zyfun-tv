@@ -30,7 +30,7 @@ Release 附件提供三个变体的签名 APK（不随源码仓库提交）：
 | JDK | 17 |
 | SDK | compileSdk 35 / minSdk 21 / targetSdk 35，build-tools 36.0.0 |
 | 播放器 | Media3 ExoPlayer 1.4.1（HLS/DASH/MP4） |
-| 存储 | Room（待接入）+ DataStore Preferences 1.1.1 |
+| 存储 | Room + DataStore Preferences 1.1.1 |
 | 网络/序列化 | OkHttp 4.12.0 + kotlinx-serialization-json 1.7.3 + Coil 2.7.0 |
 
 - 代码 namespace：`com.hoopoe.zyfuntv`；三产品变体 applicationId 分别为 `com.hoopoe.zyfun.duo`（双端）、`com.hoopoe.zyfun.phone`（手机）、`com.hoopoe.zyfun.tv`（电视），在 `app/build.gradle` 的 productFlavors 中配置。
@@ -52,34 +52,41 @@ $g='<GRADLE_BAT_OR_EXECUTABLE>'
 
 > 约定：改完功能先在模拟器/真机测试，不自动打包；仅在明确要求时构建版本。
 
-## 目录结构（当前骨架）
+## 目录结构
 
 ```
-app/src/main/
-├── AndroidManifest.xml
-├── java/com/hoopoe/zyfuntv/
-│   ├── MainActivity.kt
-│   ├── core/model/Enums.kt          # 站点/直播/解析/代理类型常量
-│   ├── data/local/                  # Room 实体、DAO、AppDatabase
-│   ├── data/prefs/SettingsRepository.kt  # DataStore 设置
-│   ├── data/remote/model/TvboxModels.kt  # TVBox/Catvod 序列化模型
-│   ├── data/repository/ConfigImporter.kt # 配置导入落库
-│   ├── data/parser/ChannelParser.kt # M3U/TXT 频道解析
-│   ├── player/PlayerController.kt   # ExoPlayer 封装 + 状态
-│   ├── player/ZyfunPlayerView.kt    # Compose 播放视图
-│   ├── ui/App.kt                    # 自适应脚手架（TV 侧栏 / 手机底栏）
-│   ├── ui/nav/Dest.kt               # 目的地：影视/直播/解析/过刻/实验室/设置
-│   ├── ui/component/TvNavRail.kt    # 电视端左侧导航（聚焦即选中）
-│   ├── ui/component/PhoneNavBar.kt  # 手机端底部导航（预留）
-│   ├── ui/screens/PlaceholderScreen.kt
-│   ├── ui/screens/SettingScreen.kt  # 界面模式切换 + 分区占位
-│   └── ui/theme/Theme.kt
-└── res/values/
+app/src/main/java/com/hoopoe/zyfuntv/
+├── MainActivity.kt
+├── core/
+│   ├── archive/        # 配置备份 / 归档导入
+│   ├── crypto/         # SM4 / AES / MAC 加解密
+│   ├── debug/          # 屏内调试日志采集
+│   ├── deeplink/       # 外部链接唤起解析
+│   ├── model/          # 枚举与共享数据模型
+│   ├── network/        # HTTP 抓取、TLS 兼容、网页嗅探
+│   ├── notify/         # 通知
+│   ├── player/         # 播放器外部意图
+│   ├── script/         # JS 脚本执行
+│   ├── sync/           # 局域网同步（设备探测 / 客户端 / 服务端）
+│   └── webdav/         # WebDAV 客户端
+├── data/
+│   ├── local/          # Room 实体 / DAO / 数据库
+│   ├── parser/         # 站点 / 直播 / 解析 / 网盘等适配器
+│   ├── prefs/          # DataStore 设置
+│   ├── remote/model/   # CMS / TVBox 序列化模型
+│   └── repository/     # 仓库与配置导入
+├── player/             # ExoPlayer 控制器与 Compose 视图
+└── ui/
+    ├── App.kt          # 双端自适应根壳
+    ├── nav/            # 目的地定义
+    ├── component/      # mobile / tv 双端组件
+    ├── screens/        # mobile / tv 双端页面
+    └── theme/          # mobile / tv 双端主题（色 / 形 / 字 / 尺寸）
 ```
 
-界面模式：`UiMode`（auto/tv/phone）持久化于 DataStore，默认电视端；自动模式按 leanback 特性判定，手机端布局预留。
+界面模式：`UiMode`（auto/phone/tv）持久化于 DataStore，默认手机端；`universal` 变体运行时自适应，`phone` / `tv` 变体经 `FORCED_UI_MODE` 强制对应端型。
 
-后续可按 core-network / core-crypto / data-repo / player / feature-film / feature-live 等模块拆分。
+双端各自独立主题：`ui/theme/mobile` 与 `ui/theme/tv`；页面与组件按 `ui/screens/mobile`、`ui/screens/tv`、`ui/component/mobile`、`ui/component/tv` 拆分。
 
 ## 许可
 
